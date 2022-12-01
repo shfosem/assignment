@@ -15,4 +15,5 @@
         * 과제 1 - MyIntVector : STL 의 vector<int>와 유사하게 동작하는 MyIntVector 클래스를 구현하는 과제. 제약조건으로는 정적 배열을 사용할 수 없었으며, int형 포인터로 데이터를 담아서 저장해야 했음.
         구현한 멤버로는 Default constructor, Copy Constructor(Deep Copy), Destuctor, Assignment operator(Deep copy), Operator +=, Operator [], Binary Operator +, -, *, == , Unary Operator - , () , pop_back(), push_back(int x), capacity(), size(), reserve()등을  구현하였고 각 멤버들에 대해 테스트를 해보는 프로그램을 main.cpp에 작성하였음.
 
-        * 과제 2 -
+        * 과제 2 - specialCalculator : stack을 활용하여 연산을 정해진 순서대로 진행하는 계산기를 만드는 과제. 과제에서의 연산자는 @, #, & 가 있고(우선순위는 & > @==# ) 피연산자는 a, b, c 이며 괄호의 종류는 (), {}, [] 가 있다. 
+        연산의 내용 또한 input 파일로 함께 들어와서 (3x3 배열의 형태로 들어오며 연산의 결과는 항상 a, b, c 중 하나), 처음에 연산을 정의하고 한줄씩 식을 입력받으며 EOI가 입력되면 결과를 한 줄씩 출력하는 계산기.
