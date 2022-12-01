@@ -1,9 +1,18 @@
 # assignment
-ìˆ˜ì—…ì„ ë“¤ìœ¼ë©´ì„œ ìˆ˜í–‰í–ˆë˜ ê³¼ì œ ì½”ë“œ ì •ë¦¬
+¼ö¾÷À» µéÀ¸¸é¼­ ¼öÇàÇß´ø °úÁ¦ ÄÚµå Á¤¸®
 ====================================
-+ ê³ ê¸‰í”„ë¡œê·¸ëž˜ë° :
-    - ìˆ˜ê°• ì‹œê¸° : 2í•™ë…„ 1í•™ê¸°(2018ë…„ ìƒë°˜ê¸°)
-    - ì‚¬ìš© ì–¸ì–´ : C++
-    - ê³¼ì œ ì„¤ëª… :
-        * ê³¼ì œ 1 - calculator.cpp: ì—‰ëš±í•˜ê²Œ ëŒì•„ê°€ëŠ” ê³„ì‚°ê¸° ìƒ˜í”Œ ì½”ë“œê°€ ì£¼ì–´ì¡Œê³  ë¬¸ì œì˜ ì¡°ê±´ì— ë”°ë¼ ìˆ˜ì •í•˜ëŠ” ê³¼ì œ. ë‹¤ì–‘í•œ ì—°ì‚°ë“¤ì´ ê°€ëŠ¥í•œ ê³„ì‚°ê¸°ì˜€ê¸° ë•Œë¬¸ì— ì ì ˆí•œ ìš°ì„  ìˆœìœ„ëŒ€ë¡œ ì—°ì‚°ì„ ì§„í–‰í•˜ë„ë¡ ì½”ë“œë¥¼ ìˆ˜ì •í•˜ê¸° ìœ„í•´ ë§Žì€ ê³ ë¯¼ê³¼ ë‹¤ì–‘í•œ ì‹œë„ë¥¼ í•˜ì˜€ìŒ.
-        * ê³¼ì œ 2 - variousShape.cpp: ì¶œì œì˜ë„ê°€ ê°ì²´ì§€í–¥ì˜ ìƒì†, ë‹¤í˜•ì„±, ìº¡ìŠí™” ê°œë…ì„ í™œìš©í•´ì„œ ì†ŒìŠ¤ì½”ë“œë¥¼ ìž‘ì„±í•´ë³´ë¼ëŠ” ê²ƒì´ ëª…í™•í–ˆë˜ ê³¼ì œ. ê¸°ë³¸ ê³¼ì œë¡œëŠ” ê¸°ì¡´ì˜ Shapeì„ ìƒì†í•˜ì—¬ ì—¬ëŸ¬ ì‘ìš© ë„í˜•ë“¤ì„ ê·¸ë ¤ë³´ëŠ” ê³¼ì œ.
++ °í±ÞÇÁ·Î±×·¡¹Ö :
+    - ¼ö°­ ½Ã±â : 2ÇÐ³â 1ÇÐ±â(2018³â »ó¹Ý±â)
+    - »ç¿ë ¾ð¾î : C++
+    - °úÁ¦ ¼³¸í :
+        * °úÁ¦ 1 - calculator.cpp: ¾û¶×ÇÏ°Ô µ¹¾Æ°¡´Â °è»ê±â »ùÇÃ ÄÚµå°¡ ÁÖ¾îÁ³°í ¹®Á¦ÀÇ Á¶°Ç¿¡ µû¶ó ¼öÁ¤ÇÏ´Â °úÁ¦. ´Ù¾çÇÑ ¿¬»êµéÀÌ °¡´ÉÇÑ °è»ê±â¿´±â ¶§¹®¿¡ ÀûÀýÇÑ ¿ì¼± ¼øÀ§´ë·Î ¿¬»êÀ» ÁøÇàÇÏµµ·Ï ÄÚµå¸¦ ¼öÁ¤ÇÏ±â À§ÇØ ¸¹Àº °í¹Î°ú ´Ù¾çÇÑ ½Ãµµ¸¦ ÇÏ¿´À½.
+        * °úÁ¦ 2 - variousShape.cpp: ÃâÁ¦ÀÇµµ°¡ °´Ã¼ÁöÇâÀÇ »ó¼Ó, ´ÙÇü¼º, Ä¸½¶È­ °³³äÀ» È°¿ëÇØ¼­ ¼Ò½ºÄÚµå¸¦ ÀÛ¼ºÇØº¸¶ó´Â °ÍÀÌ ¸íÈ®Çß´ø °úÁ¦. ±âº» °úÁ¦·Î´Â ±âÁ¸ÀÇ ShapeÀ» »ó¼ÓÇÏ¿© ¿©·¯ ÀÀ¿ë µµÇüµéÀ» ±×·Áº¸´Â °úÁ¦.
+
++ ÀÚ·á±¸Á¶ :
+    - ¼ö°­ ½Ã±â : 2ÇÐ³â 2ÇÐ±â(2018³â ÇÏ¹Ý±â)
+    - »ç¿ë ¾ð¾î : C++
+    - °úÁ¦ ¼³¸í : 
+        * °úÁ¦ 1 - MyIntVector : STL ÀÇ vector<int>¿Í À¯»çÇÏ°Ô µ¿ÀÛÇÏ´Â MyIntVector Å¬·¡½º¸¦ ±¸ÇöÇÏ´Â °úÁ¦. Á¦¾àÁ¶°ÇÀ¸·Î´Â Á¤Àû ¹è¿­À» »ç¿ëÇÒ ¼ö ¾ø¾úÀ¸¸ç, intÇü Æ÷ÀÎÅÍ·Î µ¥ÀÌÅÍ¸¦ ´ã¾Æ¼­ ÀúÀåÇØ¾ß ÇßÀ½.
+        ±¸ÇöÇÑ ¸â¹ö·Î´Â Default constructor, Copy Constructor(Deep Copy), Destuctor, Assignment operator(Deep copy), Operator +=, Operator [], Binary Operator +, -, *, == , Unary Operator - , () , pop_back(), push_back(int x), capacity(), size(), reserve()µîÀ»  ±¸ÇöÇÏ¿´°í °¢ ¸â¹öµé¿¡ ´ëÇØ Å×½ºÆ®¸¦ ÇØº¸´Â ÇÁ·Î±×·¥À» main.cpp¿¡ ÀÛ¼ºÇÏ¿´À½.
+
+        * °úÁ¦ 2 -
