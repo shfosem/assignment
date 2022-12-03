@@ -1,4 +1,4 @@
-// 2017203038 ¼­½ÂÇö
+// 2017203038
 #include "MyIntVector.h"
 
 MyIntVector::MyIntVector()  //default constructor
@@ -29,8 +29,8 @@ int& MyIntVector::operator[](size_t where) // [] operator overloading
 
 MyIntVector& MyIntVector::operator=(const MyIntVector& source) // = operator overloading
 {
-	//precondition ¿ìÇ×°ú ÁÂÇ×ÀÇ º¤ÅÍ°¡ ¹Ì¸® ¼±¾ğµÇ¾î ÀÖ¾î¾ß ÇÑ´Ù.
-	//postcondition ¿ìÇ×ÀÇ º¤ÅÍ¸¦ ÁÂÇ×¿¡ ´ëÀÔ, ÁÂÇ×À» ¹İÈ¯.
+	//precondition ìš°í•­ê³¼ ì¢Œí•­ì˜ ë²¡í„°ê°€ ë¯¸ë¦¬ ì„ ì–¸ë˜ì–´ ìˆì–´ì•¼ í•œë‹¤.
+	//postcondition ìš°í•­ì˜ ë²¡í„°ë¥¼ ì¢Œí•­ì— ëŒ€ì…, ì¢Œí•­ì„ ë°˜í™˜.
 	int* new_data;
 	if (this == &source)  //check self assignment 
 		return *this;
@@ -52,16 +52,16 @@ MyIntVector& MyIntVector::operator=(const MyIntVector& source) // = operator ove
 
 MyIntVector::~MyIntVector() //destructor
 {
-	//preconditonº¤ÅÍ°¡ Á¸ÀçÇØ¾ßÇÑ´Ù
-	//postcondition µ¥ÀÌÅÍ°¡ »èÁ¦µÈ´Ù
+	//preconditonë²¡í„°ê°€ ì¡´ì¬í•´ì•¼í•œë‹¤
+	//postcondition ë°ì´í„°ê°€ ì‚­ì œëœë‹¤
 	delete[] data;
 }
 
 
 void MyIntVector::reserve(size_t new_capacity)
 {
-	//preconditon	º¤ÅÍ°¡ ¹Ì¸® ¼±¾ğ µÇ¾î¾ß ÇÑ´Ù. used°¡ space¿Í °°¾Æ¾ß ÇÑ´Ù. »õ·Î¿î °ø°£ÀÌ ´õ Ä¿¾ßÇÑ´Ù.
-	//postcondition	new_capacityÀÇ Å©±â·Î space°¡ È®ÀåµÈ´Ù.
+	//preconditon	ë²¡í„°ê°€ ë¯¸ë¦¬ ì„ ì–¸ ë˜ì–´ì•¼ í•œë‹¤. usedê°€ spaceì™€ ê°™ì•„ì•¼ í•œë‹¤. ìƒˆë¡œìš´ ê³µê°„ì´ ë” ì»¤ì•¼í•œë‹¤.
+	//postcondition	new_capacityì˜ í¬ê¸°ë¡œ spaceê°€ í™•ì¥ëœë‹¤.
 	int * larger_array;
 	if (new_capacity == space) // check space
 		return;
@@ -70,9 +70,9 @@ void MyIntVector::reserve(size_t new_capacity)
 		new_capacity = used;
 		return;
 	}
-	larger_array = new int[new_capacity]; //new_capacity °ø°£ ÇÒ´ç
-	copy(data, data + used, larger_array);//ÀÌ»ç
-	delete[] data; //±âÁ¸ µ¥ÀÌÅÍ »èÁ¦
+	larger_array = new int[new_capacity]; //new_capacity ê³µê°„ í• ë‹¹
+	copy(data, data + used, larger_array);//ì´ì‚¬
+	delete[] data; //ê¸°ì¡´ ë°ì´í„° ì‚­ì œ
 	data = larger_array;
 	space = new_capacity;
 
@@ -80,11 +80,11 @@ void MyIntVector::reserve(size_t new_capacity)
 
 void MyIntVector::push_back(int entry)
 {
-	//preconditon	º¤ÅÍ°¡ ¹Ì¸® ¼±¾ğ µÇ¾î¾ß ÇÑ´Ù.
-	//postcondition	entry°¡ vector[used]¿¡ ÀúÀå µÈ´Ù.
+	//preconditon	ë²¡í„°ê°€ ë¯¸ë¦¬ ì„ ì–¸ ë˜ì–´ì•¼ í•œë‹¤.
+	//postcondition	entryê°€ vector[used]ì— ì €ì¥ ëœë‹¤.
 	if (capacity() == 0)
-		reserve(used+1); // 0ÀÏ °æ¿ì *¿À·ù°¡ ³ª¹Ç·Î +1
-	else if (capacity() == size())//°ø°£ÀÌ ºÎÁ·ÇÒ°æ¿ì *2
+		reserve(used+1); // 0ì¼ ê²½ìš° *ì˜¤ë¥˜ê°€ ë‚˜ë¯€ë¡œ +1
+	else if (capacity() == size())//ê³µê°„ì´ ë¶€ì¡±í• ê²½ìš° *2
 		reserve(2 * used);
 
 	data[used] = entry;
@@ -93,17 +93,17 @@ void MyIntVector::push_back(int entry)
 
 void MyIntVector::pop_back()  
 {
-	//preconditon	»èÁ¦ÇÒ º¤ÅÍÀÇ ¿ä¼Ò°¡ ÀÖ¾î¾ß ÇÑ´Ù
-	//postcondition	¸¶Áö¸· ¿ä¼Ò¸¦ »èÁ¦ÇÑ´Ù
-	data[used] = NULL;//¸Ç ¸¶Áö¸·À» ºñ¿ì°í
-	--used;				//used ¸¦ ÁÙÀÓ
+	//preconditon	ì‚­ì œí•  ë²¡í„°ì˜ ìš”ì†Œê°€ ìˆì–´ì•¼ í•œë‹¤
+	//postcondition	ë§ˆì§€ë§‰ ìš”ì†Œë¥¼ ì‚­ì œí•œë‹¤
+	data[used] = NULL;//ë§¨ ë§ˆì§€ë§‰ì„ ë¹„ìš°ê³ 
+	--used;				//used ë¥¼ ì¤„ì„
 }
 
 
 bool MyIntVector::isEmpty() const
 {
-	//preconditon	º¤ÅÍ°¡ ¹Ì¸® ¼±¾ğ µÇ¾î¾ß ÇÑ´Ù
-	//postcondition	º¤ÅÍ°¡ ºñ¾îÀÖÀ¸¸é Âü , ºñ¾îÀÖÁö ¾ÊÀ¸¸é °ÅÁşÀ» ¹İÈ¯ÇÑ´Ù.
+	//preconditon	ë²¡í„°ê°€ ë¯¸ë¦¬ ì„ ì–¸ ë˜ì–´ì•¼ í•œë‹¤
+	//postcondition	ë²¡í„°ê°€ ë¹„ì–´ìˆìœ¼ë©´ ì°¸ , ë¹„ì–´ìˆì§€ ì•Šìœ¼ë©´ ê±°ì§“ì„ ë°˜í™˜í•œë‹¤.
 	if (size() == 0)
 		return true;
 	return false;
@@ -111,8 +111,8 @@ bool MyIntVector::isEmpty() const
 
 void MyIntVector::clear()
 {
-	//preconditon	º¤ÅÍ°¡ ¹Ì¸® ¼±¾ğ µÇ¾î¾ß ÇÑ´Ù, ¿ä¼Ò°¡ Á¸ÀçÇØ¾ßÇÑ´Ù.
-	//postcondition	ºóº¤ÅÍ°¡ µÈ´Ù
+	//preconditon	ë²¡í„°ê°€ ë¯¸ë¦¬ ì„ ì–¸ ë˜ì–´ì•¼ í•œë‹¤, ìš”ì†Œê°€ ì¡´ì¬í•´ì•¼í•œë‹¤.
+	//postcondition	ë¹ˆë²¡í„°ê°€ ëœë‹¤
 	while (size() != 0)
 		pop_back();
 }
@@ -121,21 +121,21 @@ void MyIntVector::clear()
 
 void MyIntVector:: operator +=(const MyIntVector& addend)
 {
-	//preconditon	µÎ º¤ÅÍ°¡ ¸ğµÎ ¿ä¼Ò°¡ Á¸ÀçÇÏµµ·Ï ¹Ì¸® ÀÖ¾î¾ß ÇÑ´Ù.
-	//postcondition	µÎ º¤ÅÍ°¡ ÇÏ³ª·Î ¿¬°áµÈ´Ù(¿ìÇ×ÀÇ º¤ÅÍ°¡ ÁÂÇ× µÚ·Î ºÙÀ½)
+	//preconditon	ë‘ ë²¡í„°ê°€ ëª¨ë‘ ìš”ì†Œê°€ ì¡´ì¬í•˜ë„ë¡ ë¯¸ë¦¬ ìˆì–´ì•¼ í•œë‹¤.
+	//postcondition	ë‘ ë²¡í„°ê°€ í•˜ë‚˜ë¡œ ì—°ê²°ëœë‹¤(ìš°í•­ì˜ ë²¡í„°ê°€ ì¢Œí•­ ë’¤ë¡œ ë¶™ìŒ)
 	if (used + addend.used > space)
 		reserve(used + addend.used);
-	copy(addend.data, addend.data + addend.used, data + used);//¾ÕÀÇ º¤ÅÍ µÚ·Î º¹»çÇÏ¸é ¿¬°á
+	copy(addend.data, addend.data + addend.used, data + used);//ì•ì˜ ë²¡í„° ë’¤ë¡œ ë³µì‚¬í•˜ë©´ ì—°ê²°
 	used += addend.used;
 }
 
 
-MyIntVector& MyIntVector::operator+(const MyIntVector& v) //¹İÈ¯ÇüÀÌ reference°¡ ¾Æ´Ï¸é ¹Ù·Î »ç¶óÁö¹Ç·Î reference
+MyIntVector& MyIntVector::operator+(const MyIntVector& v) //ë°˜í™˜í˜•ì´ referenceê°€ ì•„ë‹ˆë©´ ë°”ë¡œ ì‚¬ë¼ì§€ë¯€ë¡œ reference
 {
-	//preconditon	º¤ÅÍ µÎ°³°¡ ¸ğµÎ ¼±¾ğµÇ¾î¾ß ÇÏ°í used°¡ °°¾Æ¾ß ÇÑ´Ù
-	//postcondition	¿ŞÂÊº¤ÅÍÀÇ ¿ä¼Òµé¿¡ ¿À¸¥ÂÊ º¤ÅÍ¿ä¼ÒµéÀÌ ´õÇØÁö°í ¿ŞÂÊº¤ÅÍ¸¦ ¹İÈ¯ÇÑ´Ù
+	//preconditon	ë²¡í„° ë‘ê°œê°€ ëª¨ë‘ ì„ ì–¸ë˜ì–´ì•¼ í•˜ê³  usedê°€ ê°™ì•„ì•¼ í•œë‹¤
+	//postcondition	ì™¼ìª½ë²¡í„°ì˜ ìš”ì†Œë“¤ì— ì˜¤ë¥¸ìª½ ë²¡í„°ìš”ì†Œë“¤ì´ ë”í•´ì§€ê³  ì™¼ìª½ë²¡í„°ë¥¼ ë°˜í™˜í•œë‹¤
 	if(size() != v.size())
-		assert(size() != v.size());			//»çÀÌÁî°¡ °°Áö ¾ÊÀ¸¸é ¿¡·¯
+		assert(size() != v.size());			//ì‚¬ì´ì¦ˆê°€ ê°™ì§€ ì•Šìœ¼ë©´ ì—ëŸ¬
 	
 	MyIntVector* answer = new MyIntVector(); 
 		
@@ -145,10 +145,10 @@ MyIntVector& MyIntVector::operator+(const MyIntVector& v) //¹İÈ¯ÇüÀÌ reference°¡
 	return *answer;
 }
 
-MyIntVector& MyIntVector::operator-(const MyIntVector& v) //+¿¬»êÀÚ¿Í °°À½
+MyIntVector& MyIntVector::operator-(const MyIntVector& v) //+ì—°ì‚°ìì™€ ê°™ìŒ
 {
-	//preconditon	º¤ÅÍ µÎ°³°¡ ¸ğµÎ ¼±¾ğµÇ¾î¾ß ÇÏ°í used°¡ °°¾Æ¾ß ÇÑ´Ù
-	//postcondition	¿ŞÂÊº¤ÅÍÀÇ ¿ä¼Òµé¿¡ ¿À¸¥ÂÊ º¤ÅÍ¿ä¼ÒµéÀÌ »©°í ¿ŞÂÊº¤ÅÍ¸¦ ¹İÈ¯ÇÑ´Ù
+	//preconditon	ë²¡í„° ë‘ê°œê°€ ëª¨ë‘ ì„ ì–¸ë˜ì–´ì•¼ í•˜ê³  usedê°€ ê°™ì•„ì•¼ í•œë‹¤
+	//postcondition	ì™¼ìª½ë²¡í„°ì˜ ìš”ì†Œë“¤ì— ì˜¤ë¥¸ìª½ ë²¡í„°ìš”ì†Œë“¤ì´ ë¹¼ê³  ì™¼ìª½ë²¡í„°ë¥¼ ë°˜í™˜í•œë‹¤
 	if (this->size() != v.size())
 		assert(this->size() != v.size());
 	MyIntVector* answer = new MyIntVector;
@@ -160,10 +160,10 @@ MyIntVector& MyIntVector::operator-(const MyIntVector& v) //+¿¬»êÀÚ¿Í °°À½
 }
 
 
-MyIntVector& MyIntVector::operator*(const MyIntVector& v) //+¿¬»êÀÚ¿Í °°À½
+MyIntVector& MyIntVector::operator*(const MyIntVector& v) //+ì—°ì‚°ìì™€ ê°™ìŒ
 {
-	//preconditon	º¤ÅÍ µÎ°³°¡ ¸ğµÎ ¼±¾ğµÇ¾î¾ß ÇÏ°í used°¡ °°¾Æ¾ß ÇÑ´Ù
-	//postcondition	¿ŞÂÊº¤ÅÍÀÇ ¿ä¼Òµé¿¡ ¿À¸¥ÂÊ º¤ÅÍ¿ä¼ÒµéÀÌ °öÇØÁö°í ¿ŞÂÊº¤ÅÍ¸¦ ¹İÈ¯ÇÑ´Ù
+	//preconditon	ë²¡í„° ë‘ê°œê°€ ëª¨ë‘ ì„ ì–¸ë˜ì–´ì•¼ í•˜ê³  usedê°€ ê°™ì•„ì•¼ í•œë‹¤
+	//postcondition	ì™¼ìª½ë²¡í„°ì˜ ìš”ì†Œë“¤ì— ì˜¤ë¥¸ìª½ ë²¡í„°ìš”ì†Œë“¤ì´ ê³±í•´ì§€ê³  ì™¼ìª½ë²¡í„°ë¥¼ ë°˜í™˜í•œë‹¤
 	if (this->size() != v.size())
 		assert(this->size() != v.size());
 	MyIntVector* answer = new MyIntVector();
@@ -179,8 +179,8 @@ MyIntVector& MyIntVector::operator*(const MyIntVector& v) //+¿¬»êÀÚ¿Í °°À½
 
 MyIntVector& MyIntVector::operator-()
 {
-	// precondition º¤ÅÍ°¡ ÀÖ°í ¿ä¼ÒµéÀÌ Á¸ÀçÇØ¾ßÇÑ´Ù
-	// postcondition ¿ä¼ÒµéÀÌ À½¼ö¸é ¾ç¼ö, ¾ç¼ö¸é À½¼ö°¡ µÈ´Ù.
+	// precondition ë²¡í„°ê°€ ìˆê³  ìš”ì†Œë“¤ì´ ì¡´ì¬í•´ì•¼í•œë‹¤
+	// postcondition ìš”ì†Œë“¤ì´ ìŒìˆ˜ë©´ ì–‘ìˆ˜, ì–‘ìˆ˜ë©´ ìŒìˆ˜ê°€ ëœë‹¤.
 	for (size_t i = 0; i < size(); i++)
 		data[i] *= -1;
 	return *this;
@@ -189,8 +189,8 @@ MyIntVector& MyIntVector::operator-()
 
 MyIntVector& MyIntVector::operator()(int n)
 {
-//preconditon	º¤ÅÍ°¡ ¼±¾ğµÇ¾î¾ß ÇÏ°í ¿ä¼Ò°¡ Á¸ÀçÇØ¾ß ÇÑ´Ù/. intÇüÀ» ¹Ş´Â´Ù
-//postcondition	¹ŞÀº ÀÎÆ®ÇüÀÌ ¸ğµç ¿ä¼Òµé¿¡ ´ëÀÔµÇ°í º¤ÅÍ¸¦ ¹İÈ¯ÇÑ´Ù.
+//preconditon	ë²¡í„°ê°€ ì„ ì–¸ë˜ì–´ì•¼ í•˜ê³  ìš”ì†Œê°€ ì¡´ì¬í•´ì•¼ í•œë‹¤/. intí˜•ì„ ë°›ëŠ”ë‹¤
+//postcondition	ë°›ì€ ì¸íŠ¸í˜•ì´ ëª¨ë“  ìš”ì†Œë“¤ì— ëŒ€ì…ë˜ê³  ë²¡í„°ë¥¼ ë°˜í™˜í•œë‹¤.
 	for (size_t i = 0; i < size(); i++)
 		data[i] = n;
 	return *this;
@@ -200,8 +200,8 @@ MyIntVector& MyIntVector::operator()(int n)
 
 bool MyIntVector::operator==(const MyIntVector& v)
 {
-	//preconditon	º¤ÅÍ µÎ°³°¡ ¸ğµÎ ¼±¾ğµÇ¾î¾ß ÇÑ´Ù
-	//postcondition	usedºÎÅÍ °¢°¢ÀÇ ¿ä¼ÒµéÀ» È®ÀÎÇÑµÚ °°À¸¸é Âü , °°Áö ¾ÊÀ¸¸é °ÅÁşÀ» ¹İÈ¯ÇÑ´Ù.
+	//preconditon	ë²¡í„° ë‘ê°œê°€ ëª¨ë‘ ì„ ì–¸ë˜ì–´ì•¼ í•œë‹¤
+	//postcondition	usedë¶€í„° ê°ê°ì˜ ìš”ì†Œë“¤ì„ í™•ì¸í•œë’¤ ê°™ìœ¼ë©´ ì°¸ , ê°™ì§€ ì•Šìœ¼ë©´ ê±°ì§“ì„ ë°˜í™˜í•œë‹¤.
 	if (size() != v.size())
 		return false;
 	/*for (size_t i = 0; i < size(); ++i)
