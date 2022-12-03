@@ -1,4 +1,4 @@
-//2017203038 ¼­½ÂÇö
+//2017203038 
 #include "MyIntVector.h"
 #include <iostream>
 
