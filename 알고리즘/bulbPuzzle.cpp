@@ -9,7 +9,7 @@ bool final_state[20][20];
 
 /*
     최종 상태가 모두 꺼져있는지 확인
-    param
+    @param
         n : 퍼즐의 크기
 */
 bool check_finalstate_off(int n)
@@ -24,7 +24,7 @@ bool check_finalstate_off(int n)
 
 /*
     최종 정답 출력
-    param
+    @param
         n: 퍼즐의 크기
 */
 void print_bulbSwitch(int n)
@@ -41,7 +41,7 @@ void print_bulbSwitch(int n)
 
 /*
     전구 스위치 켜기
-    param:
+    @param:
         x : x좌표
         y : y좌표
         n : 퍼즐의 크기
@@ -65,7 +65,7 @@ void click_button(int x, int y, int n)
     경우의 수 탐색
     non-promising 하다고 판단되는 경우 false를 반환하고,
     promising 한 경우 다음 스위치를 키며 진행
-    param:
+    @param:
         x : x좌표
         y : y좌표
         n : 퍼즐의 크기
@@ -103,7 +103,7 @@ bool dfs(int x, int y, int n)
 /*
     문제를 해결할 수 있는지 판별
     0,0부터 최초의 dfs 실행
-    param
+    @param
         n: 퍼즐의 크기
 */
 bool solve(int n)
