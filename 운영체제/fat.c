@@ -31,13 +31,13 @@ void FatInit(void)
 
 /* 
    FAT 테이블에 블록을 추가하는 함수
-   param
+   @param
       lastBlkNum : 마지막 블록 Num
       newBlkNum : 새 블록 Num
 
    lastBlkNum의 다음 블록을 newBlkNum으로 지정
 
-   return :
+   @return :
    newBlkNum FAT entry value is not 0 return -1
    lastBlkNum FAT entry value is not -1 return -1
  */
@@ -83,11 +83,11 @@ int FatAdd(int lastBlkNum, int newBlkNum)
 /* 
    Logical block number로 physical block number를 획득하는 함수
 
-   param :
+   @param :
       firstBlkNum : 시작 블록 Num
       logicalBlkNum :  논리적인 block Num
 
-   return :
+   @return :
    firstBlkNum부터 시작해서 logicalBlkNum에 해당하는 블록 값이 담긴 index를 반환
 
 firstBlkNum FAT entry value  is 0 or logicalBlkNum physical block num -1 or 0 return -1
@@ -116,11 +116,11 @@ int FatGetBlockNum(int firstBlkNum, int logicalBlkNum)
 /*
    startBlock 부터 마지막 블록까지 제거하는 함수
 
-   param 
+   @param 
       firstBlock: 파일 시작을 지정
       startBlock: 삭제를 시작할 block
    
-   return
+   @return
       삭제된 블록 개수
  firstBlkNum FAT entry value is 0 or start BlkNm Fat entry value is 0 return -1
 */
