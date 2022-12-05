@@ -40,8 +40,7 @@ victim 시  해당 buffer block이 dirty인 경우 disk에 저장 Sync()
 Read, Write 관계 없이 현재 접근 되는 Buffer는 무조건 LRU list의 Tail로 이동
 */
 
-Buf* BufGet(int blkno) // 주소를 불러오는 것 느낌상 TAILQ_FOREACH 동작을 구현하는 함수.
-{   
+Buf* BufGet(int blkno) // 주소를 불러옴
     Buf *item = malloc(sizeof(Buf));
     TAILQ_FOREACH(item, &ppBufList[blkno%4], blist)
     {
@@ -302,99 +301,3 @@ void GetBufInfoInBufferList(int hashEntNum, Buf** ppBufInfo, int* pNumBuf)
 }
 
 
-
-
-/*
-victim->blkno=blkno;
-                    DevReadBlock(blkno,victim->pMem);
-                    
-                    //LRU Update
-                    Buf* temp;
-                    TAILQ_FOREACH(temp,&pLruListHead,llist)
-                    {
-                        if(temp->blkno == blkno)
-                        {
-                            TAILQ_REMOVE(&pLruListHead,temp,llist);
-                            TAILQ_INSERT_TAIL(&pLruListHead,temp,llist);
-                            break;
-                        }
-                    }
-*/
-
-
-
-
-
-//수정전 BufWrite
-
-/*
-   Buf *item;
-    TAILQ_FOREACH(item, &pBufList, blist)
-    {
-        if(item->blkno==blkno)
-        {
-            if(item->state) // 1 is Clean 
-            {
-                item->pMem = pData;
-                item->state=BUF_STATE_DIRTY;
-                //Change State List
-                Buf * titem;
-                TAILQ_FOREACH(titem,&ppStateListHead[BUF_LIST_CLEAN],slist) //delete in clean, Insert in Dirty
-                {
-                    if(titem->blkno==blkno){
-                        TAILQ_REMOVE(&ppStateListHead[BUF_LIST_CLEAN],titem,slist);
-                        TAILQ_INSERT_TAIL(&ppStateListHead[BUF_LIST_DIRTY], titem,slist);
-                        break;
-                    }
-                }
-                
-            }
-            else // dirty write Data
-            {
-                item->pMem = pData;
-            }
-            is_buffercache=1;
-            break;
-        }
-
-    }
-*/
-
-
-// 수정전 BufRead
-/*
- TAILQ_FOREACH(item, &ppBufList[blkno%4], blist)  // is_buffercache
-        if(item->blkno==blkno)
-        {
-            pData=item->pMem;
-            is_buffercache=1;
-
-            //LRU Update
-            Buf* temp;
-            TAILQ_FOREACH(temp,&pLruListHead,llist)
-            {
-                if(temp->blkno == blkno)
-                {
-                    TAILQ_REMOVE(&pLruListHead,temp,llist);
-                    TAILQ_INSERT_TAIL(&pLruListHead,temp,llist);
-                    break;
-                }
-            }
-
-            break;
-        }
-    }
-
-
-    read 안에서  remove하던 부분
-      // TAILQ_FOREACH(temp, &ppBufList[blkno%4], blist)
-                    // {
-                    //     if(victim->blkno == temp->blkno)
-                    //     {
-                    //         TAILQ_REMOVE(&ppBufList[blkno%4],temp,blist);
-                    //         break;
-                    //     }
-                    // }
-
-                    
-*/
