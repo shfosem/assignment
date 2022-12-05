@@ -43,3 +43,10 @@
         * 과제 1 - FAT Table 구현 : FAT 파일시스템에 대해 학습하고 실제로 그러한 구현을 해보는 과제. FatInit, FatAdd, FatRemove, FatGetBlockNumber 네 함수들을 주어진 테스트케이스 코드에 맞게 돌아가도록 구현하는 과제.
 
         * 과제 2 - Buffer Cache 구현 : Clean list, Dirty list 로 구성된 버퍼 구조에서 동작하는 버퍼 캐시를 구현. BufInit, BufRead, BufWrite, BufSync 함수를 구현하였고, 버퍼 구조의 리스트는 매크로 기반으로 구현된 TAILQ를 사용하여 구성되었음
+
++ 모바일프로그래밍 :
+    - 수강 시기 : 3학년 2학기(2021년 하반기)
+    - 사용 언어 : java(안드로이드)
+    - 과제 설명 :
+        * 과제 1 - 간단한 앱 구현 : TableLayout을 활용하여 간단한 계산기를 만들고, WebView를 활용하여 웹 브라우저에 접속 가능한 앱을 구현. 간단한 메모장을 구현하여, URL을 입력 후 길게 클릭하여 공유 시 암시적 인텐트로 앞에서 구현한 웹브라우저 앱으로 이동하는 기능 구현
+        * 과제 2 - 음악 앱 구현 : Content Provider와 Service를 활용한 간단한 음악 재생 앱 구현
